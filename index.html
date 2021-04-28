@@ -6,6 +6,7 @@
     <title>Movie DB</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
     <header class="header">
@@ -18,7 +19,7 @@
             <img src="icons/Logotype.svg" alt="logo">
         </div>
     </header>
-    <main class="promo">
+    <main class="promo" id="app">
         <div class="promo__menu">
             <nav class="promo__menu-list">
                 <ul>
@@ -32,7 +33,7 @@
         </div>
         <div class="promo__content">
             <div class="promo__bg">
-                <div class="promo__genre">КОМЕДИЯ</div>
+                <div class="promo__genre"> {{ genre }}</div>
                 <div class="promo__title">МАРСИАНИН</div>
                 <div class="promo__descr">ИСТОРИЯ ЧЕЛОВЕКА, ВЫЖИВШЕГО НА ЧУЖОЙ ПЛАНЕТЕ В ОДИНОЧКУ</div>
                 <div class="promo__ratings">
@@ -44,19 +45,8 @@
                 <div>
                     <div class="promo__interactive-title">ПРОСМОТРЕННЫЕ ФИЛЬМЫ</div>
                     <ul class="promo__interactive-list">
-                        <li class="promo__interactive-item">ЛОГАН
-                            <div class="delete"></div>
-                        </li>
-                        <li class="promo__interactive-item">ЛИГА СПРАВЕДЛИВОСТИ
-                            <div class="delete"></div>
-                        </li>
-                        <li class="promo__interactive-item">ЛА-ЛА ЛЭНД
-                            <div class="delete"></div>
-                        </li>
-                        <li class="promo__interactive-item">ОДЕРЖИМОСТЬ
-                            <div class="delete"></div>
-                        </li>
-                        <li class="promo__interactive-item">СКОТТ ПИЛИГРИМ ПРОТИВ...
+                        <li class="promo__interactive-item" v-for="movie, index in movies">
+                            {{ movie }}
                             <div class="delete"></div>
                         </li>
                     </ul>
