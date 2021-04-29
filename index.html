@@ -45,9 +45,9 @@
                 <div>
                     <div class="promo__interactive-title">ПРОСМОТРЕННЫЕ ФИЛЬМЫ</div>
                     <ul class="promo__interactive-list">
-                        <li class="promo__interactive-item" v-for="movie, index in movies">
-                            {{ index + 1 }} {{ movie }}
-                            <div class="delete"></div>
+                        <li class="promo__interactive-item" v-for="movie, index in sortFilms">
+                            {{ index + 1 }} {{ movie }} 
+                            <div class="delete" v-on:click="deleteFilm(index)"></div>
                         </li>
                     </ul>
                 </div>

@@ -13,10 +13,29 @@ var app = new Vue({
       genre: 'Драма',
       movies: [
         "Логан",
+        "Юла",
         "Лига справедливости",
         "Ла-ла лэнд",
         "Одержимость",
-        "Скотт Пилигрим против..."
+        "Скотт Пилигрим против...",
+        "Алла",
+        "12312353463 fgetbrtn 25645778568"
       ],
+    },
+    computed: {
+        sortFilms: function () {
+            return this.movies.sort();
+        }
+    },
+    methods: {
+        normalizeFilm: function (filmName) {
+            if (filmName.length > 21) {
+                filmName = filmName.substring(0, 22);
+            }
+        },
+        deleteFilm: function (index) {
+            this.movies.splice(index, 1);
+        }
     }
+
 });
