@@ -11,6 +11,8 @@ var app = new Vue({
     data: {
       title: 'МАРСИАНИН',
       genre: 'Драма',
+      inputValue: '', 
+      checked: false,
       movies: [
         "Логан",
         "Юла",
@@ -19,7 +21,7 @@ var app = new Vue({
         "Одержимость",
         "Скотт Пилигрим против...",
         "Алла",
-        "12312353463 fgetbrtn 25645778568"
+        "12312353463 25645778568"
       ],
     },
     computed: {
@@ -27,6 +29,7 @@ var app = new Vue({
             return this.movies.sort();
         }
     },
+
     methods: {
         normalizeFilm: function (filmName) {
             if (filmName.length > 21) {
@@ -35,7 +38,14 @@ var app = new Vue({
         },
         deleteFilm: function (index) {
             this.movies.splice(index, 1);
+        },
+        addFilm: function () {
+            if (this.checked) {
+                this.movies.push(this.inputValue + ' (favorite)');
+            } else {
+                this.movies.push(this.inputValue);
+            }
+                this.inputValue = '';
         }
     }
-
 });
